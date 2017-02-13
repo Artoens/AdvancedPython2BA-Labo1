@@ -14,7 +14,7 @@ def fact(n):
     if n > 0:
         R = math.factorial(n)
     else:
-        r = ValueError
+        R = ValueError
     return R
 
 
