@@ -5,23 +5,22 @@
 import unittest
 import utils
 
-#coucou
-
 class TestUtils(unittest.TestCase):
-    class TestUtils(unittest.TestCase):
-        def test_fact(self):
-            self.assertEqual(utils.fact(0), 1)
-            self.assertEqual(utils.fact(1), 1)
-            self.assertEqual(utils.fact(3), 6)
+    def test_fact(self):
+        self.assertEqual(utils.fact(0), 1)
+        self.assertEqual(utils.fact(-1), ValueError)
+        self.assertEqual(utils.fact(3), 6)
+        self.assertEqual(utils.fact(""), ValueError)
+        pass
 
-        def test_roots(self):
-            self.assertEqual(utils.root(0, 0, 0), ())
-            self.assertEqual(utils.root(1, 2, 1), (1))
-            self.assertEqual(utils.root(1, 0, -1), (1, -1) or (-1, 1))
+    def test_roots(self):
+        self.assertEqual(utils.roots(1, -4, 3), (1, 3))
+        self.assertEqual(utils.roots(0, 4, -16), (4))
+        pass
 
-        def test_integrate(self):
-            self.assertEqual(utils.integrate(1, 0, 1), (1))
-            pass
+    def test_integrate(self):
+        self.assertEqual(utils.integrate("x", 0, 0), (0))
+        pass
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestUtils)
