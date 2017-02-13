@@ -11,10 +11,11 @@ def fact(n):
     Post: Returns the factorial of 'n'.
     Throws: ValueError if n < 0.
     """
-    if n >= 0:
-        R = math.factorial(n)
-    else:
-        R = ValueError
+    R = ValueError
+
+    if type(n) ==int:
+        if n >= 0:
+            R = math.factorial(n)
     return R
 
 
